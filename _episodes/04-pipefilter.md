@@ -32,8 +32,6 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with a directory called `sw`
-that contains bioinformatics tools.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
@@ -48,34 +46,6 @@ allpaths-lg  datamash         hap          nmath         samtools
 ...
 ~~~
 {: .output}
-
-The samtools program we have been running is in a directory listed here. 
-Let's go into that directory with `cd` and run the command `ls`.
-
-~~~
-sam              samtools-0.1.19  samtools-1.3.1  samtools-devel-20141202
-samtools-0.1.10  samtools-1.0     samtools-dev
-samtools-0.1.17  samtools-1.1     samtools-devel
-~~~
-{: .output}
-
-These subdirectories show all of the available versions we have of this 
-tool. When we run `module load samtools` we are really making this 
-commandline session search one of these paths for our samtools program.
-This happens without our knowledeg but we could also use the full path 
-to this tools if we had installed it outselves on our own comuter.
-
-~~~
-ls samtools-1.3.1/bin/
-~~~
-{: .bash}
-
-We will call the newest version of samtools.
-
-~~~
-samtools-1.3.1/bin/samtools
-~~~
-{: .bash}
 
 `wc *.pdb`.
 `wc` is the "word count" command:
