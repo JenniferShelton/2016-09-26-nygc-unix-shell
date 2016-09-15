@@ -107,7 +107,7 @@ i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
-the computer's response is `/Users/nelle`,
+the computer's response is `/gpfs/commons/home/nelle`,
 which is Nelle's **home directory**:
 
 ~~~
@@ -116,7 +116,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle
+/gpfs/commons/home/nelle
 ~~~
 {: .output}
 
@@ -191,8 +191,10 @@ $ ls
 {: .bash}
 
 ~~~
-Applications Documents    Library      Music        Public
-Desktop      Downloads    Movies       Pictures
+Desktop          Music                Videos
+Documents        Pictures             
+Downloads        Public
+igv              Templates
 ~~~
 {: .output}
 
@@ -211,8 +213,10 @@ $ ls -F
 {: .bash}
 
 ~~~
-Applications/ Documents/    Library/      Music/        Public/
-Desktop/      Downloads/    Movies/       Pictures/
+Desktop/          Music/                Videos/
+Documents/        Pictures/             
+Downloads/        Public/
+igv/              Templates/
 ~~~
 {: .output}
 
@@ -380,6 +384,25 @@ And note that there is a space between `ls` and `-F`:
 without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
+
+When they are installed we can call bioinformatics tools in the same 
+way we do the standard unxi shell commands. On many clusters first we will 
+`load` a `module` to let the computer know we want to run this tool.
+
+~~~
+module load samtools
+~~~
+{: .bash}
+
+Then we can call samtools to show us the informational header on a BAM (compressed 
+sequence alignment file). This goes much the sam way as before except now we call 
+the program samtools, pass a command (a sub task for it to perform) and then we
+pass flags to modify its behavior.
+
+~~~
+samtools view -H /DATAGOESHERE
+~~~
+{: .bash}
 
 > ## Parameters vs. Arguments
 >
