@@ -15,34 +15,69 @@ keypoints:
 - "`head` displays the first few lines of its input."
 - "`tail` displays the last few lines of its input."
 - "`sort` sorts its inputs."
+- "`samtools veiw` converts formats SAM<->BAM<->CRAM."
+- "`samtools veiw -H` prints Header information."
+- "`samtools sort` sorts alignments by position in the reference."
+- "`samtools rmdup` removes duplicates."
+- "`samtools flagstat` simple alignment stats."
 - "`wc` counts lines, words, and characters in its inputs."
 - "`*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`."
 - "`?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`."
 - "`command > file` redirects a command's output to a file."
 - "`first | second` is a pipeline: the output of the first command is used as the input to the second."
 - "The best way to use the shell is to use pipes to combine simple single-purpose programs (filters)."
+- "Bioinformatics tools can and often should run like this so you can create custom workflows."
 ---
 
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with a directory called `molecules`
-that contains six files describing some simple organic molecules.
+We'll start with a directory called `sw`
+that contains bioinformatics tools.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
 ~~~
-$ ls molecules
+$ ls /nfs/sw
 ~~~
 {: .bash}
 
 ~~~
-cubane.pdb    ethane.pdb    methane.pdb
-octane.pdb    pentane.pdb   propane.pdb
+abyss        cutadapt         gsutil       ngslib        sambamba
+allpaths-lg  datamash         hap          nmath         samtools
+...
 ~~~
 {: .output}
 
-Let's go into that directory with `cd` and run the command `wc *.pdb`.
+The samtools program we have been running is in a directory listed here. 
+Let's go into that directory with `cd` and run the command `ls`.
+
+~~~
+sam              samtools-0.1.19  samtools-1.3.1  samtools-devel-20141202
+samtools-0.1.10  samtools-1.0     samtools-dev
+samtools-0.1.17  samtools-1.1     samtools-devel
+~~~
+{: .output}
+
+These subdirectories show all of the available versions we have of this 
+tool. When we run `module load samtools` we are really making this 
+commandline session search one of these paths for our samtools program.
+This happens without our knowledeg but we could also use the full path 
+to this tools if we had installed it outselves on our own comuter.
+
+~~~
+ls samtools-1.3.1/bin/
+~~~
+{: .bash}
+
+We will call the newest version of samtools.
+
+~~~
+samtools-1.3.1/bin/samtools
+~~~
+{: .bash}
+
+`wc *.pdb`.
 `wc` is the "word count" command:
 it counts the number of lines, words, and characters in files.
 The `*` in `*.pdb` matches zero or more characters,
