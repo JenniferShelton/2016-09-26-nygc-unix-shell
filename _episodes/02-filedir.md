@@ -392,7 +392,60 @@ which doesn't exist.
 > so we will too.
 {: .callout}
 
-We can also use `ls` to see the contents of a different directory.  Let's take a 
+We can also use `ls` to see the contents of a different directory.  
+We'll start with a directory called `sw`
+that contains bioinformatics tools.
+
+~~~
+$ ls -F /nfs/sw
+~~~
+{: .bash}
+
+~~~
+abyss/        cutadapt/         gsutil/       ngslib/        sambamba/
+allpaths-lg/  datamash/         hap/          nmath/         samtools/
+...
+~~~
+{: .output}
+
+The samtools program we have been running is in a directory listed here. 
+Let's go into that directory with `cd` and run the command `ls`.
+
+~~~
+cd /nfs/sw/samtools/
+ls
+~~~
+{: .bash}
+
+~~~
+sam              samtools-0.1.19  samtools-1.3.1  samtools-devel-20141202
+samtools-0.1.10  samtools-1.0     samtools-dev
+samtools-0.1.17  samtools-1.1     samtools-devel
+~~~
+{: .output}
+
+These subdirectories show all of the available versions we have of this 
+tool. When we run `module load samtools` we are really making this 
+commandline session search one of these paths for our samtools program.
+This happens without our knowledeg but we could also use the full path 
+to this tools if we had installed it outselves on our own comuter.
+
+~~~
+ls samtools-1.3.1/bin/
+~~~
+{: .bash}
+
+We will call the newest version of samtools.
+
+~~~
+samtools-1.3.1/bin/samtools
+~~~
+{: .bash}
+=================================
+
+
+
+Let's take a 
 look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
 the command `ls` with the **arguments** `-F` and `Desktop`.
