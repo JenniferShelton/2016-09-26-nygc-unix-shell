@@ -95,7 +95,8 @@ being able to interact with them is becoming a necessary skill.
 We can build on the command-line skills covered here
 to tackle a wide range of scientific questions and computational challenges.
 
-## Nelle's Pipeline: Starting Point
+
+## Nelle's Pipeline... why the command-line?
 
 Nelle Nemo, a marine biologist,
 has just returned from a six-month survey of the
@@ -139,4 +140,14 @@ so that her computer can work 24 hours a day while she writes her paper.
 As a bonus,
 once she has put a processing pipeline together,
 she will be able to use it again whenever she collects more data.
+
+## Bioinformatics... why the command-line?
+
+Above is an example from ecology. The situation is much the same in bioinformatics.
+At centers like the NYGC sequencers can run in parallel and 
+output extremely large--much, much too big for Excel--text files. Fortunately, these text files have standardized formats. Today we will see how to make sets of commands to process these kinds of files. Working from the command line has many advantages over point-and-click GUI tools when it comes to scientific analysis.
+1.  These commands can take hours or days to complete. Our commands will execute in order long after we have left for the day.
+2.  If and when we discover we want to change our method--it is common to adjust these commands based on our data--the command-line makes it easy to adjust and repeat tasks. 
+3.  Within our lab it is important to have a record of how we conducted our analysis... our saved commands are the computational equivalent of the lab notebook. 
+4.  When we publish we must include or make available our methods. Our commands are essentially our computational methods.
 
