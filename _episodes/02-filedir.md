@@ -482,19 +482,24 @@ We will call the newest version of samtools.
 samtools-1.3.1/bin/samtools
 ~~~
 {: .bash}
+
+Overall our filesystem looks like this:
+
+![The File System](../fig/file_system.png)
+
 =================================
 
 
 
 Let's take a 
-look at our `Desktop` directory by running `ls -F Desktop`,
+look at our `siw` data directory by running `ls`,
 i.e.,
 the command `ls` with the **arguments** `-F` and `Desktop`.
 The second argument --- the one *without* a leading dash --- tells `ls` that
 we want a listing of something other than our current working directory:
 
 ~~~
-$ ls -F Desktop
+$ ls -F /gpfs.commons
 ~~~
 {: .bash}
 
