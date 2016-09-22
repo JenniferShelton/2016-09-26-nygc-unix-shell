@@ -386,7 +386,7 @@ the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
 When they are installed we can call bioinformatics tools in the same 
-way we do the standard unxi shell commands. On many clusters first we will 
+way we do the standard unix shell commands. On many clusters first we will 
 `load` a `module` to let the computer know we want to run this tool.
 
 ~~~
@@ -400,9 +400,18 @@ the program samtools, pass a command (a sub task for it to perform) and then we
 pass flags to modify its behavior.
 
 ~~~
-samtools view -H /DATAGOESHERE
+samtools view -H /gpfs/commons/groups/siw/data/NA12878.final.bam
 ~~~
 {: .bash}
+
+We can see useful information about the sequencing (on the @RG read group lines) and 
+the programs run on the sequence to create the alignments (on the @PG program lines).
+
+~~~
+@RG	ID:NA12878_NoIndex_H0231ALXX_L006	PL:illumina	PU:HiSeq-2000	LB:NA12878	DS:GRCh37.63	SM:NA12878	CN:NYGenome
+@PG	ID:GATK IndelRealigner	VN:3.1-1-g07a4bf8	CL:knownAlleles=[] targetIntervals=/data/analysis/NYGC/Project_NYGC_01354_WGS/Sample_NA12878/analysis/NA12878.forRealigner.intervals LODThresholdForCleaning=5.0 consensusDeterminationModel=USE_READS entropyThreshold=0.15 maxReadsInMemory=150000 maxIsizeForMovement=3000 maxPositionalMoveAllowed=200 maxConsensuses=30 maxReadsForConsensuses=120 maxReadsForRealignment=20000 noOriginalAlignmentTags=false nWayOut=null generate_nWayOut_md5s=false check_early=false noPGTag=false keepPGTags=false indelsFileForDebugging=null statisticsFileForDebugging=null SNPsFileForDebugging=null
+~~~
+{: .output}
 
 > ## Parameters vs. Arguments
 >
