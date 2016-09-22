@@ -399,13 +399,22 @@ sequence alignment file). This goes much the sam way as before except now we cal
 the program samtools, pass a command (a sub task for it to perform) and then we
 pass flags to modify its behavior.
 
+To find out the help menu we usually either call the program with no arguments, call
+the program with `-h` or call the program with `--help`. You can generaly try each of 
+these to find what works with a bioinformatics tool.
+
+~~~
+samtools
+~~~
+{: .bash}
+
 ~~~
 samtools view -H /gpfs/commons/groups/siw/data/NA12878.final.bam
 ~~~
 {: .bash}
 
-We can see useful information about the sequencing (on the @RG read group lines) and 
-the programs run on the sequence to create the alignments (on the @PG program lines).
+We can use what we learn to get useful information about the sequencing (on the @RG read group lines) and 
+the programs run on the sequence data to for a given alignment file (on the @PG program lines).
 
 ~~~
 @RG	ID:NA12878_NoIndex_H0231ALXX_L006	PL:illumina	PU:HiSeq-2000	LB:NA12878	DS:GRCh37.63	SM:NA12878	CN:NYGenome
@@ -460,7 +469,7 @@ These subdirectories show all of the available versions we have of this
 tool. When we run `module load samtools` we are really making this 
 commandline session search one of these paths for our samtools program.
 This happens without our knowledeg but we could also use the full path 
-to this tools if we had installed it outselves on our own comuter.
+to this tools if we had installed it ourselves on our own comuter.
 
 ~~~
 ls samtools-1.3.1/bin/
